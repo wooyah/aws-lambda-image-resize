@@ -1,0 +1,16 @@
+service: lambda-image-resize
+
+provider:
+    name: aws
+    runtime: nodejs12.x
+    stage: dev
+    region: ap-northeast-2
+  
+functions:
+    resizeImage:
+        handler: handler.resizeImage
+        events: 
+        - http:
+            path: resizeImage
+            method: get
+        #   - schedule: rate(1 day) 
